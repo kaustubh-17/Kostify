@@ -31,5 +31,5 @@
 6. 'Approve' or 'Reject' the quotation of the recent buyer as required
 
 ### Link
-[costestimationsystem.bsite.net]
+costestimationsystem.bsite.net
   
