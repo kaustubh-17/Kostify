@@ -3,6 +3,8 @@
 ### Overview
 **Kostify** is a platform that connects carton buyers and carton sellers. It is built using .NET MVC 5 and Entity Framework 6.
 
+![CoverPage](images/project.png)
+
 ### Features
 - Registration: Registration in either of 2 roles: buyer or seller
 - Dashboard: Dashboard with basic details
