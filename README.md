@@ -31,5 +31,5 @@
 6. 'Approve' or 'Reject' the quotation of the recent buyer as required
 
 ### Link
-[Kostify - A platform to connect carton buyers and sellers](costestimationsystem.bsite.net)
+[Kostify](http://costestimationsystem.bsite.net)
   
