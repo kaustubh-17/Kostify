@@ -1,7 +1,7 @@
 # Kostify
 
 ### Overview
-**Kostify** is a [brief project description, what it does, its purpose]. It is built using [technologies or frameworks used]. This project aims to [goals or objectives].
+**Kostify** is a platform that connects carton buyers and carton sellers. It is built using .NET MVC 5 and Entity Framework 6.
 
 ### Features
 - Registration: Registration in either of 2 roles: buyer or seller
@@ -31,5 +31,5 @@
 6. 'Approve' or 'Reject' the quotation of the recent buyer as required
 
 ### Link
-[Visit Kostify Website](costestimationsystem.bsite.net)
+[Kostify - A platform to connect carton buyers and sellers](costestimationsystem.bsite.net)
   
