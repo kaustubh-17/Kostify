@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CostEstimationModelStoreContainer" CdmEntityContainer="CostEstimationDbContext">
+    <EntitySetMapping Name="cartonPriceEstimators">
+      <EntityTypeMapping TypeName="CostEstimationModel.cartonPriceEstimator">
+        <MappingFragment StoreEntitySet="cartonPriceEstimator">
+          <ScalarProperty Name="carton_id" ColumnName="carton_id" />
+          <ScalarProperty Name="product" ColumnName="product" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="dimension" ColumnName="dimension" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="unitcost" ColumnName="unitcost" />
+          <ScalarProperty Name="material" ColumnName="material" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

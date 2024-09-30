@@ -1,0 +1,306 @@
+﻿@{
+    Layout = "~/Views/Shared/_LandingPage.cshtml"; ;
+}
+<style>
+
+
+    * {
+       
+        text-decoration: none;
+    }
+    a{
+        color:white;
+    }
+
+button {
+  margin: 20px;
+  font-size:17px;
+  font-weight:bold;
+}
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+/*6*/
+    .btn-6 {
+
+        background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
+
+        line-height: 42px;
+        padding: 0;
+        border: none;
+    }
+
+        .btn-6 span {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .btn-6:before,
+        .btn-6:after {
+            position: absolute;
+            content: "";
+            right: 0;
+            bottom: 0;
+            background: rgba(2,126,251,1);
+            box-shadow: -7px -7px 20px 0px rgba(255,255,255,.9), -4px -4px 5px 0px rgba(255,255,255,.9), 7px 7px 20px 0px rgba(0,0,0,.2), 4px 4px 5px 0px rgba(0,0,0,.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-6:before {
+            height: 0%;
+            width: 2px;
+        }
+
+        .btn-6:after {
+            width: 0%;
+            height: 2px;
+        }
+
+        .btn-6:hover {
+            color: rgba(2,126,251,1);
+            background: #fff;
+        }
+
+            .btn-6:hover:before {
+                height: 100%;
+            }
+
+            .btn-6:hover:after {
+                width: 100%;
+            }
+
+        .btn-6 span:before,
+        .btn-6 span:after {
+            position: absolute;
+            content: "";
+            left: 0;
+            top: 0;
+            background: rgba(2,126,251,1);
+            box-shadow: -7px -7px 20px 0px rgba(255,255,255,.9), -4px -4px 5px 0px rgba(255,255,255,.9), 7px 7px 20px 0px rgba(0,0,0,.2), 4px 4px 5px 0px rgba(0,0,0,.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-6 span:before {
+            width: 2px;
+            height: 0%;
+        }
+
+        .btn-6 span:after {
+            height: 2px;
+            width: 0%;
+        }
+
+        .btn-6 span:hover:before {
+            height: 100%;
+        }
+
+        .btn-6 span:hover:after {
+            width: 100%;
+        }
+
+/* 7 */
+.btn-7 {
+background: linear-gradient(0deg, rgba(255,151,0,1) 0%, rgba(251,75,2,1) 100%);
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+.btn-7 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn-7:before,
+.btn-7:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  bottom: 0;
+  background: rgba(251,75,2,1);
+  box-shadow:
+   -7px -7px 20px 0px rgba(255,255,255,.9),
+   -4px -4px 5px 0px rgba(255,255,255,.9),
+   7px 7px 20px 0px rgba(0,0,0,.2),
+   4px 4px 5px 0px rgba(0,0,0,.3);
+  transition: all 0.3s ease;
+}
+.btn-7:before{
+   height: 0%;
+   width: 2px;
+}
+.btn-7:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-7:hover{
+  color: rgba(251,75,2,1);
+  background: #fff;
+}
+.btn-7:hover:before {
+  height: 100%;
+}
+.btn-7:hover:after {
+  width: 100%;
+}
+.btn-7 span:before,
+.btn-7 span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  background: rgba(251,75,2,1);
+  box-shadow:
+   -7px -7px 20px 0px rgba(255,255,255,.9),
+   -4px -4px 5px 0px rgba(255,255,255,.9),
+   7px 7px 20px 0px rgba(0,0,0,.2),
+   4px 4px 5px 0px rgba(0,0,0,.3);
+  transition: all 0.3s ease;
+}
+.btn-7 span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn-7 span:after {
+  height: 2px;
+  width: 0%;
+}
+.btn-7 span:hover:before {
+  height: 100%;
+}
+.btn-7 span:hover:after {
+  width: 100%;
+}
+
+    .typewriter h3 {
+        width: auto;
+        display: inline-block;
+        color: white;
+        font-family: monospace;
+        overflow: hidden; /* Ensures the content is not revealed until the animation */
+        border-right: .15em solid orange; /* The typwriter cursor */
+        white-space: nowrap; /* Keeps the content on a single line */
+        margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+        letter-spacing: .05em; /* Adjust as needed */
+        animation: typing 0.5s steps(30, end), blink-caret 0.5s step-end infinite;
+    }
+
+/* The typing effect */
+@@keyframes typing {
+  from { max-width: 0 }
+  to { max-width: 100% }
+}
+
+/* The typewriter cursor effect */
+@@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: greenyellow }
+}
+
+</style>
+<body background="~/images/download.jfif" onclick="playAudio()">
+        <center>
+            <audio id="hiddenAudio" controls style="display:none">
+                <source src="~/music/eternity.mp3" type="audio/mp3" />
+                Music
+            </audio>
+            <div>
+                <br />
+                <br />
+                <div style="margin-bottom:-20px; margin-top:-10px">
+                    <img src="~/images/Kostify.png" height="400" width="400"/>
+                </div>
+                <div class="typewriter" style="margin-bottom:10px">
+                    @*<h3>Welcome to <span style="color:greenyellow"><b>Kostify</b></span>, world's best cost estimation system.</h3>*@
+                    <h3>
+                        <a style="text-decoration: none" href="" class="typewrite" data-period="2000" data-type='[ "Welcome to Kostify, worlds best cost estimation system.", "Simplify your logistics services with our top-notch buyer-seller interactivity", "Over 100 million downloads in first 10 days of launch"]'>
+                            <span class="wrap"></span>
+                        </a>
+                    </h3>
+                </div>
+                <div>
+                    <button style="width:200px" class="custom-btn btn-6" type="button" onclick="location.href='@Url.Action("Signup", "Account")'"><span>Signup</span></button>
+                    <button style="width:200px" class="custom-btn btn-7" type="button" onclick="location.href='@Url.Action("Login", "Account")'"><span>Login</span></button>
+                </div>
+            </div>
+        </center>
+        <script>
+            function playAudio() {
+                var audio = document.getElementById('hiddenAudio');
+                audio.play();
+            };
+            var TxtType = function (el, toRotate, period) {
+                this.toRotate = toRotate;
+                this.el = el;
+                this.loopNum = 0;
+                this.period = parseInt(period, 10) || 2000;
+                this.txt = '';
+                this.tick();
+                this.isDeleting = false;
+            };
+
+            TxtType.prototype.tick = function () {
+                var i = this.loopNum % this.toRotate.length;
+                var fullTxt = this.toRotate[i];
+
+                if (this.isDeleting) {
+                    this.txt = fullTxt.substring(0, this.txt.length - 1);
+                } else {
+                    this.txt = fullTxt.substring(0, this.txt.length + 1);
+                }
+
+                this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+                var that = this;
+                var delta = 200 - Math.random() * 100;
+
+                if (this.isDeleting) { delta /= 2; }
+
+                if (!this.isDeleting && this.txt === fullTxt) {
+                    delta = this.period;
+                    this.isDeleting = true;
+                } else if (this.isDeleting && this.txt === '') {
+                    this.isDeleting = false;
+                    this.loopNum++;
+                    delta = 500;
+                }
+
+                setTimeout(function () {
+                    that.tick();
+                }, delta);
+            };
+
+            window.onload = function () {
+                var elements = document.getElementsByClassName('typewrite');
+                for (var i = 0; i < elements.length; i++) {
+                    var toRotate = elements[i].getAttribute('data-type');
+                    var period = elements[i].getAttribute('data-period');
+                    if (toRotate) {
+                        new TxtType(elements[i], JSON.parse(toRotate), period);
+                    }
+                }
+                // INJECT CSS
+                var css = document.createElement("style");
+                css.type = "text/css";
+                css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+                document.body.appendChild(css);
+            };
+        </script>
+</body>

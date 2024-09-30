@@ -1,0 +1,184 @@
+﻿@using CostEstimationSystem.Models
+@model Estimator
+@{
+    ViewBag.Title = "Unit Price Estimator";
+}
+
+@{
+    Layout = "~/Views/Shared/_BuyerDashboard.cshtml";
+}
+
+<style>
+
+    .field-validation-valid {
+        display: none;
+    }
+
+    .validation-summary-valid {
+        display: none;
+    }
+
+    .btn-default {
+        background-color: #04AA6D;
+        border: 1px solid black;
+        border-radius: 5px;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer; 
+    }
+
+        .btn-default:hover {
+            background-color: #000;
+            border: 1px solid #04AA6D;
+            color: #04AA6D;
+        }
+
+    .btn-default2 {
+        background-color: red;
+        border: 1px solid black;
+        border-radius: 5px;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+        .btn-default2:hover {
+            background-color: #000;
+            border: 1px solid red;
+            color: red;
+        }
+</style>
+
+<body>
+    <h4>Please enter product details here to estimate unit cost</h4>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.trade, "Trade", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.trade, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.trade, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.companyName, "Company", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.companyName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.companyName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.dimension, "Dimensions (m*m*m)", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.dimension, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.dimension, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.quantity, "Quantity", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.quantity, new { htmlAttributes = new { @class = "form-control", @id = "quantid" } })
+                    @Html.ValidationMessageFor(model => model.quantity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.material, "Material", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model=>model.material, new SelectList(Enum.GetValues(typeof(Estimator.Materialx))), new { @class = "form-control form-select", id="materialid"} )
+         
+                    @Html.ValidationMessageFor(model => model.material, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div id="displayCostId">
+
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.ActionLink("Evaluate Unit Cost", "Estimate", "Buyer", new { area = "" }, new { @class = "btn btn-default", onclick = "displayCost();return false;" })
+                </div>
+
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.ActionLink("Generate sample carton", "Login", "Account", new { area = "" }, new { @class = "btn btn-default2", onclick = "displayCost();return false;" })
+                    @*@Html.ActionLink("Generate Quotation", "GetQuotation", "Quotation", new { area = "" }, new { @class = "btn btn-default2" })*@
+                    <input type="submit" value="Generate Quotation" class="btn btn-default2"/>
+                </div>
+            </div>
+        </div>
+        <script>
+            function displayCost() {
+                var price = 0;
+                var quant = document.getElementById("quantid").value;
+                var x = document.getElementById("displayCostId");
+                var y = document.getElementById("materialid");
+                x.style.color = '#AAFF00';
+                x.style.fontWeight = 'bold';
+                if (y.options[y.selectedIndex].text == "Steel") {
+                    price = Math.max(100 - quant / 50, 40);
+                    x.innerHTML = "Unit cost is Rs. " + Math.ceil(price) + " per piece";
+                }
+
+                else if (y.options[y.selectedIndex].text == "Fiberboard") {
+                    price = Math.max(90 - quant / 50, 40);
+                    x.innerHTML = "Unit cost is Rs. " + Math.ceil(price) + " per piece";
+                }
+
+                else if (y.options[y.selectedIndex].text == "Wood") {
+                    price = Math.max(80 - quant / 50, 40);
+                    x.innerHTML = "Unit cost is Rs. " + Math.ceil(price) + " per piece";
+                }
+
+                else if (y.options[y.selectedIndex].text == "Plastic" || y.options[y.selectedIndex].text == "Aluminium") {
+                    price = Math.max(70 - quant / 50, 40);
+                    x.innerHTML = "Unit cost is Rs. " + Math.ceil(price) + " per piece";
+                }
+
+                else if (y.options[y.selectedIndex].text == "Shrinkwrap" || y.options[y.selectedIndex].text == "Stretchwrap") {
+                    price = Math.max(60 - quant / 50, 40);
+                    x.innerHTML = "Unit cost is Rs. " + Math.ceil(price) + " per piece";
+                }
+
+                else if (y.options[y.selectedIndex].text == "Cardboard") {
+                    price = Math.max(50 - quant / 50, 40);
+                    x.innerHTML = "Unit cost is Rs. " + Math.ceil(price) + " per piece";
+                }
+
+                else if (y.options[y.selectedIndex].text == "Paperboard" || y.options[y.selectedIndex].text == "Bubblewrap") {
+                    price = Math.max(40 - quant / 50, 25);
+                    x.innerHTML = "Unit cost is Rs. " + Math.ceil(price) + " per piece";
+                }
+
+                else if (y.options[y.selectedIndex].text == "Kraftpaper") {
+                    price = Math.max(30 - quant / 50, 25);
+                    x.innerHTML = "Unit cost is Rs. " + Math.ceil(price) + " per piece";
+                }
+                else {
+                    x.innerHTML = "Please select a material first";
+                    x.style.color = 'red';
+                }
+               
+            }
+        </script>
+    }
+
+</body>

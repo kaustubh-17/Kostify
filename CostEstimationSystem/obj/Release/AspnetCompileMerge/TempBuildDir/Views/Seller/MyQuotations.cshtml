@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CostEstimationSystem.Models.Quotation>
+@{
+    ViewBag.Title = "MyOrders";
+}
+@{
+    Layout = "~/Views/Shared/_SellerDashboard.cshtml";
+}
+<style>
+    table.table-bordered {
+        border: 1px solid white;
+        margin-top: 20px;
+    }
+
+        table.table-bordered > thead > tr > th {
+            border: 1px solid white;
+        }
+
+        table.table-bordered > tbody > tr > td {
+            border: 1px solid white;
+        }
+</style>
+<body>
+    <h2>Live Quotation Tracker</h2>
+
+    <table class="table table-bordered table-striped">
+        <tr style="background-color:black">
+            <th style="color:white">Seller</th>
+            <th style="color:white">Trade</th>
+            <th style="color:white">Company</th>
+            <th style="color:white">Material</th>
+            <th style="color:white">Dimensions</th>
+            <th style="color:white">Quantity</th>
+            <th style="color:white">Unit Cost</th>
+            <th style="color:white">Buyer</th>
+            <th colspan="2" style="color:white">Approve/Reject</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="color:black; background-color:white">@item.seller_name</td>
+                <td style="color:black; background-color:white">@item.trade</td>
+                <td style="color:black; background-color:white">@item.company</td>
+                <td style="color:black; background-color:white">@item.material</td>
+                <td style="color:black; background-color:white">@item.dimension</td>
+                <td style="color:black; background-color:white">@item.quantity</td>
+                <td style="color:black; background-color:white">@item.unit_cost</td>
+                <td style="color:black; background-color:white">@item.buyer_name</td>
+                <td>
+                    @Html.ActionLink("Approve", "MyQuotations", new { id = item.quotation_id }, new { onclick = "return alert('Quotation Approved');" }) |
+                    @Html.ActionLink("Reject", "MyQuotations", new { id = item.quotation_id }, new { onclick = "return confirm('Are you sure you wish to delete this?');" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>

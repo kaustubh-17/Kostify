@@ -1,0 +1,15 @@
+C:\Dotnet2\CostEstimationSystem\DAL\bin\Debug\DAL.dll.config
+C:\Dotnet2\CostEstimationSystem\DAL\bin\Debug\DAL.dll
+C:\Dotnet2\CostEstimationSystem\DAL\bin\Debug\DAL.pdb
+C:\Dotnet2\CostEstimationSystem\DAL\bin\Debug\EntityFramework.dll
+C:\Dotnet2\CostEstimationSystem\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Dotnet2\CostEstimationSystem\DAL\bin\Debug\EntityFramework.xml
+C:\Dotnet2\CostEstimationSystem\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Dotnet2\CostEstimationSystem\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Dotnet2\CostEstimationSystem\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Dotnet2\CostEstimationSystem\DAL\obj\Debug\DAL.dll
+C:\Dotnet2\CostEstimationSystem\DAL\obj\Debug\DAL.pdb
+C:\Dotnet2\CostEstimationSystem\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Dotnet2\CostEstimationSystem\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Dotnet2\CostEstimationSystem\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Dotnet2\CostEstimationSystem\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml

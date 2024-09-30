@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+@{
+    if(ViewBag.role == "Buyer")
+    {
+        Layout = "~/Views/Shared/_BuyerDashboard.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_SellerDashboard.cshtml";
+    }
+
+
+}
+
+<style>
+    .estimator {
+        border: 1px solid #04AA6D !important;
+        background-color: #04AA6D;
+        color: #fff;
+        height: 40px;
+    }
+</style>
+
+<body>
+    <div class="container mt-5">
+
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-md-7">
+
+                <div class="card p-3 py-4" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE6OF1qfzuY2MMt8yRuM1VIohN3oSOfv0rzA&usqp=CAU')">
+
+                    <div class="text-center">
+                        <img src="~/assets/img/user.jpg" width="100" height="100" class="rounded-circle">
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <span class="bg-secondary p-1 px-4 rounded text-white">@ViewBag.role</span>
+                        <h5 class="mt-2 mb-0">@ViewBag.heading</h5>
+
+                        <hr />
+
+                        <div class="px-4 mt-1" style="padding:2px">
+                            <h6>Username: <i>@ViewBag.username</i></h6>
+                            <h6>Email ID: <i>@ViewBag.email</i></h6>
+                            <h6>Contact: <i>@ViewBag.phone</i></h6>
+
+                        </div>
+                        <hr />
+
+                        <div class="buttons">
+
+                            <button onclick="location.href='@Url.Action("ChangeCredentials", "Account")'" class="btn btn-primary px-4 ms-3">Change Username/Password</button>
+                            <button class="btn btn-primary px-4 ms-3">@ViewBag.secondButton</button>
+                           
+                        </div>
+
+
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+   
+</body>

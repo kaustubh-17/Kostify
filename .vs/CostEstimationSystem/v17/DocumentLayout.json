@@ -1,0 +1,133 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Dotnet2\\CostEstimationSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Dotnet2\\CostEstimationSystem\\CostEstimationSystem\\Controllers\\QuotationController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CostEstimationSystem\\Controllers\\QuotationController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BC286C0-3F50-460A-80F8-72B7C8E0921D}|DAL\\DAL.csproj|C:\\Dotnet2\\CostEstimationSystem\\dal\\cesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BC286C0-3F50-460A-80F8-72B7C8E0921D}|DAL\\DAL.csproj|solutionrelative:dal\\cesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Dotnet2\\CostEstimationSystem\\CostEstimationSystem\\Controllers\\AccountController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CostEstimationSystem\\Controllers\\AccountController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Dotnet2\\CostEstimationSystem\\CostEstimationSystem\\Views\\Account\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CostEstimationSystem\\Views\\Account\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Dotnet2\\CostEstimationSystem\\CostEstimationSystem\\Views\\Seller\\MyQuotations.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CostEstimationSystem\\Views\\Seller\\MyQuotations.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Dotnet2\\CostEstimationSystem\\CostEstimationSystem\\Controllers\\SellerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CostEstimationSystem\\Controllers\\SellerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Dotnet2\\CostEstimationSystem\\CostEstimationSystem\\Views\\Account\\ChangeCredentials.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CostEstimationSystem\\Views\\Account\\ChangeCredentials.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "QuotationController.cs",
+              "DocumentMoniker": "C:\\Dotnet2\\CostEstimationSystem\\CostEstimationSystem\\Controllers\\QuotationController.cs",
+              "RelativeDocumentMoniker": "CostEstimationSystem\\Controllers\\QuotationController.cs",
+              "ToolTip": "C:\\Dotnet2\\CostEstimationSystem\\CostEstimationSystem\\Controllers\\QuotationController.cs",
+              "RelativeToolTip": "CostEstimationSystem\\Controllers\\QuotationController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T14:30:24.993Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CESRepository.cs",
+              "DocumentMoniker": "C:\\Dotnet2\\CostEstimationSystem\\DAL\\CESRepository.cs",
+              "RelativeDocumentMoniker": "DAL\\CESRepository.cs",
+              "ToolTip": "C:\\Dotnet2\\CostEstimationSystem\\DAL\\CESRepository.cs",
+              "RelativeToolTip": "DAL\\CESRepository.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAgwDAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-30T10:17:44.521Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Dotnet2\\CostEstimationSystem\\CostEstimationSystem\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "CostEstimationSystem\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Dotnet2\\CostEstimationSystem\\CostEstimationSystem\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "CostEstimationSystem\\Controllers\\AccountController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T14:30:25.077Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Dotnet2\\CostEstimationSystem\\CostEstimationSystem\\Views\\Account\\Index.cshtml",
+              "RelativeDocumentMoniker": "CostEstimationSystem\\Views\\Account\\Index.cshtml",
+              "ToolTip": "C:\\Dotnet2\\CostEstimationSystem\\CostEstimationSystem\\Views\\Account\\Index.cshtml",
+              "RelativeToolTip": "CostEstimationSystem\\Views\\Account\\Index.cshtml",
+              "ViewState": "AQIAAJYAAAAAAAAAAAAAALEAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-07-16T14:30:25.09Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MyQuotations.cshtml",
+              "DocumentMoniker": "C:\\Dotnet2\\CostEstimationSystem\\CostEstimationSystem\\Views\\Seller\\MyQuotations.cshtml",
+              "RelativeDocumentMoniker": "CostEstimationSystem\\Views\\Seller\\MyQuotations.cshtml",
+              "ToolTip": "C:\\Dotnet2\\CostEstimationSystem\\CostEstimationSystem\\Views\\Seller\\MyQuotations.cshtml",
+              "RelativeToolTip": "CostEstimationSystem\\Views\\Seller\\MyQuotations.cshtml",
+              "ViewState": "AQIAABoAAAAAAAAAAAAAADAAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-07-16T14:30:25.098Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SellerController.cs",
+              "DocumentMoniker": "C:\\Dotnet2\\CostEstimationSystem\\CostEstimationSystem\\Controllers\\SellerController.cs",
+              "RelativeDocumentMoniker": "CostEstimationSystem\\Controllers\\SellerController.cs",
+              "ToolTip": "C:\\Dotnet2\\CostEstimationSystem\\CostEstimationSystem\\Controllers\\SellerController.cs",
+              "RelativeToolTip": "CostEstimationSystem\\Controllers\\SellerController.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAcwCUAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T14:30:25.107Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ChangeCredentials.cshtml",
+              "DocumentMoniker": "C:\\Dotnet2\\CostEstimationSystem\\CostEstimationSystem\\Views\\Account\\ChangeCredentials.cshtml",
+              "RelativeDocumentMoniker": "CostEstimationSystem\\Views\\Account\\ChangeCredentials.cshtml",
+              "ToolTip": "C:\\Dotnet2\\CostEstimationSystem\\CostEstimationSystem\\Views\\Account\\ChangeCredentials.cshtml",
+              "RelativeToolTip": "CostEstimationSystem\\Views\\Account\\ChangeCredentials.cshtml",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAADkAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-07-16T14:30:25.114Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

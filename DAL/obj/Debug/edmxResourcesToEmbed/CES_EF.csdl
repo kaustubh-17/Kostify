@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CESModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="buyer">
+    <Key>
+      <PropertyRef Name="buyer_id" />
+    </Key>
+    <Property Name="buyer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="quotations" Relationship="CESModel.FK__quotation__buyer__60A75C0F" FromRole="buyer" ToRole="quotation" />
+  </EntityType>
+  <EntityType Name="seller">
+    <Key>
+      <PropertyRef Name="seller_id" />
+    </Key>
+    <Property Name="seller_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="quotations" Relationship="CESModel.FK__quotation__selle__619B8048" FromRole="seller" ToRole="quotation" />
+  </EntityType>
+  <EntityContainer Name="CES_DbContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="buyers" EntityType="Self.buyer" />
+    <EntitySet Name="sellers" EntityType="Self.seller" />
+    <EntitySet Name="cartonPriceEstimators" EntityType="CESModel.cartonPriceEstimator" />
+    <EntitySet Name="quotations" EntityType="CESModel.quotation" />
+    <AssociationSet Name="FK__quotation__buyer__60A75C0F" Association="CESModel.FK__quotation__buyer__60A75C0F">
+      <End Role="buyer" EntitySet="buyers" />
+      <End Role="quotation" EntitySet="quotations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__quotation__selle__619B8048" Association="CESModel.FK__quotation__selle__619B8048">
+      <End Role="seller" EntitySet="sellers" />
+      <End Role="quotation" EntitySet="quotations" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="cartonPriceEstimator">
+    <Key>
+      <PropertyRef Name="carton_id" />
+    </Key>
+    <Property Name="carton_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="trade" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="companyName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dimension" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+    <Property Name="unitCost" Type="Double" Nullable="false" />
+    <Property Name="material" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="quotation">
+    <Key>
+      <PropertyRef Name="quotation_id" />
+    </Key>
+    <Property Name="quotation_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="trade" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="company" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="material" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dimension" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+    <Property Name="unit_cost" Type="Double" Nullable="false" />
+    <Property Name="buyer_id" Type="Int32" Nullable="false" />
+    <Property Name="seller_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="buyer" Relationship="CESModel.FK__quotation__buyer__60A75C0F" FromRole="quotation" ToRole="buyer" />
+    <NavigationProperty Name="seller" Relationship="CESModel.FK__quotation__selle__619B8048" FromRole="quotation" ToRole="seller" />
+    <Property Name="buyer_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="seller_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__quotation__buyer__60A75C0F">
+    <End Type="CESModel.buyer" Role="buyer" Multiplicity="1" />
+    <End Type="CESModel.quotation" Role="quotation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="buyer">
+        <PropertyRef Name="buyer_id" />
+      </Principal>
+      <Dependent Role="quotation">
+        <PropertyRef Name="buyer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__quotation__selle__619B8048">
+    <End Type="CESModel.seller" Role="seller" Multiplicity="1" />
+    <End Type="CESModel.quotation" Role="quotation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="seller">
+        <PropertyRef Name="seller_id" />
+      </Principal>
+      <Dependent Role="quotation">
+        <PropertyRef Name="seller_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

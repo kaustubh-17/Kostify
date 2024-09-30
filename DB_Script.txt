@@ -1,0 +1,242 @@
+DB script:
+
+USE [master]
+GO
+
+/****** Object:  Database [CostEstimationSystem]    Script Date: 12/11/2023 10:51:15 AM ******/
+CREATE DATABASE [CostEstimationSystem]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'CostEstimationSystem', FILENAME = N'C:\Users\kaustubh.srivastava\CostEstimationSystem.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'CostEstimationSystem_log', FILENAME = N'C:\Users\kaustubh.srivastava\CostEstimationSystem_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT
+GO
+
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [CostEstimationSystem].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET ANSI_NULL_DEFAULT OFF 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET ANSI_NULLS OFF 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET ANSI_PADDING OFF 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET ANSI_WARNINGS OFF 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET ARITHABORT OFF 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET AUTO_CLOSE ON 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET AUTO_SHRINK OFF 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET AUTO_UPDATE_STATISTICS ON 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET CURSOR_DEFAULT  GLOBAL 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET NUMERIC_ROUNDABORT OFF 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET QUOTED_IDENTIFIER OFF 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET RECURSIVE_TRIGGERS OFF 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET  ENABLE_BROKER 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET TRUSTWORTHY OFF 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET PARAMETERIZATION SIMPLE 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET HONOR_BROKER_PRIORITY OFF 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET RECOVERY SIMPLE 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET  MULTI_USER 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET PAGE_VERIFY CHECKSUM  
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET DB_CHAINING OFF 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET DELAYED_DURABILITY = DISABLED 
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET QUERY_STORE = OFF
+GO
+
+ALTER DATABASE [CostEstimationSystem] SET  READ_WRITE 
+GO
+
+_______________________________________________________________________________
+Tables script:
+
+1. buyers table
+
+USE [CostEstimationSystem]
+GO
+
+/****** Object:  Table [dbo].[buyers]    Script Date: 12/11/2023 11:04:30 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[buyers](
+	[buyer_id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](50) NULL,
+	[email] [varchar](50) NULL,
+	[phone] [varchar](50) NULL,
+	[username] [varchar](50) NULL,
+	[password] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[buyer_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+2. sellers table
+
+USE [CostEstimationSystem]
+GO
+
+/****** Object:  Table [dbo].[sellers]    Script Date: 12/11/2023 11:05:16 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[sellers](
+	[seller_id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](50) NULL,
+	[email] [varchar](50) NULL,
+	[phone] [varchar](50) NULL,
+	[username] [varchar](50) NULL,
+	[password] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[seller_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+3. cartonPriceEstimator table
+
+USE [CostEstimationSystem]
+GO
+
+/****** Object:  Table [dbo].[cartonPriceEstimator]    Script Date: 12/11/2023 11:05:42 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[cartonPriceEstimator](
+	[carton_id] [int] IDENTITY(1,1) NOT NULL,
+	[trade] [varchar](50) NOT NULL,
+	[companyName] [varchar](50) NOT NULL,
+	[dimension] [varchar](50) NOT NULL,
+	[quantity] [int] NOT NULL,
+	[unitCost] [float] NOT NULL,
+	[material] [varchar](100) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[carton_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+4. quotations table
+
+USE [CostEstimationSystem]
+GO
+
+/****** Object:  Table [dbo].[quotations]    Script Date: 12/11/2023 11:06:17 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[quotations](
+	[quotation_id] [int] IDENTITY(1,1) NOT NULL,
+	[trade] [varchar](50) NOT NULL,
+	[company] [varchar](50) NOT NULL,
+	[material] [varchar](50) NOT NULL,
+	[dimension] [varchar](50) NOT NULL,
+	[quantity] [int] NOT NULL,
+	[unit_cost] [float] NOT NULL,
+	[buyer_id] [int] NOT NULL,
+	[seller_id] [int] NOT NULL,
+	[buyer_name] [varchar](50) NULL,
+	[seller_name] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[quotation_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[quotations]  WITH CHECK ADD FOREIGN KEY([buyer_id])
+REFERENCES [dbo].[buyers] ([buyer_id])
+GO
+
+ALTER TABLE [dbo].[quotations]  WITH CHECK ADD FOREIGN KEY([seller_id])
+REFERENCES [dbo].[sellers] ([seller_id])
+GO
+
+
+
+
+

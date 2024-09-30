@@ -1,0 +1,140 @@
+﻿@model CostEstimationSystem.Models.Estimator
+
+@{
+    ViewBag.Title = "GetQuotation";
+}
+
+@{
+    Layout = "~/Views/Shared/_BuyerDashboard.cshtml";
+}
+
+<style>
+
+    .btn-default1 {
+        background-color: #04AA6D;
+        border: 1px solid black;
+        border-radius: 5px;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+        .btn-default1:hover {
+            background-color: #000;
+            border: 1px solid #04AA6D;
+            color: #04AA6D;
+        }
+
+    .btn-default2 {
+        background-color: red;
+        border: 1px solid black;
+        border-radius: 5px;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+        .btn-default2:hover {
+            background-color: #000;
+            border: 1px solid red;
+            color: red;
+        }
+
+    table.table-bordered {
+        border: 1px solid white;
+        margin-top: 20px;
+    }
+
+        table.table-bordered > thead > tr > th {
+            border: 1px solid white;
+        }
+
+        table.table-bordered > tbody > tr > td {
+            border: 1px solid white;
+        }
+</style>
+
+<body>
+    <h4>Generate Quotation</h4>
+
+    <table class="table table-bordered table-striped">
+        <tr style="background-color:black">
+            <th style="color:white">Parameters</th>
+            <th style="color:white">Values</th>
+        </tr>
+        <tr>
+            <td style="color:black; background-color:white">Trade</td>
+            <td style="color:black; background-color:white">@Model.trade</td>
+        </tr>
+        <tr>
+            <td style="color:black; background-color:white">Company</td>
+            <td style="color:black; background-color:white">@Model.companyName</td>
+        </tr>
+        <tr>
+            <td style="color:black; background-color:white">Dimensions</td>
+            <td style="color:black; background-color:white">@Model.dimension</td>
+        </tr>
+        <tr>
+            <td style="color:black; background-color:white">Quantity</td>
+            <td style="color:black; background-color:white">@Model.quantity</td>
+        </tr>
+        <tr>
+            <td style="color:black; background-color:white">Material</td>
+            <td style="color:black; background-color:white">@Model.material</td>
+        </tr>
+        <tr>
+            <td style="color:black; background-color:white">Unit Cost</td>
+            <td style="color:black; background-color:white">@Model.unitCost</td>
+        </tr>
+        <tr>
+            <td style="color:black; background-color:white">Select Seller</td>
+            <td style="color:black; background-color:white" class="dropdown">
+                <form action="" name="FILTER">
+                    <select id ="selectId" class ="selectVal" name="filter_for">
+                        @for (int i = 0; i < @ViewBag.sellers.Count; i++)
+                        {
+                            <option value="@ViewBag.sellers[i].seller_id">@ViewBag.sellers[i].name</option>
+                        }
+                       
+                    </select>
+                </form>
+            </td>
+        </tr>
+
+    </table>
+    <h5>Are you sure you want to submit quotation with above details?</h5>
+    <button type="submit"class="btn btn-default1" onclick="selected()">Yes</button>
+    @*@Html.ActionLink("Yes", "Estimate", "Buyer", new { area = "" }, new { @class = "btn btn-default1", onclick = "selected();" })*@
+    @Html.ActionLink("No", "Estimate", "Buyer", new { area = "" }, new { @class = "btn btn-default2", onclick = "alertNotSubmitted();" })
+<script>
+    function selected() {
+        alert("Quotation submitted succesfully!");
+        var e = document.getElementById("selectId");
+        var sellerId = e.value;
+        var sellerName = e.options[e.selectedIndex].text;
+        var dataToSend = { key1: sellerId, key2: sellerName};
+        $.ajax({
+            type: 'POST',
+            url: '/Quotation/GetQuotation',
+            data: dataToSend,
+            success: function (result) {
+
+            },
+            error: function (error) {
+
+            }
+        });
+    }
+    function alertSubmitted() {
+        alert("Quotation submitted succesfully!");
+
+    }
+    function alertNotSubmitted() {
+        alert("Quotation not submitted!");
+    }
+</script>
+</body>

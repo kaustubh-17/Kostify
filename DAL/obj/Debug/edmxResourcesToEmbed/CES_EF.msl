@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CESModelStoreContainer" CdmEntityContainer="CES_DbContext">
+    <EntitySetMapping Name="buyers">
+      <EntityTypeMapping TypeName="CESModel.buyer">
+        <MappingFragment StoreEntitySet="buyers">
+          <ScalarProperty Name="buyer_id" ColumnName="buyer_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sellers">
+      <EntityTypeMapping TypeName="CESModel.seller">
+        <MappingFragment StoreEntitySet="sellers">
+          <ScalarProperty Name="seller_id" ColumnName="seller_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cartonPriceEstimators">
+      <EntityTypeMapping TypeName="CESModel.cartonPriceEstimator">
+        <MappingFragment StoreEntitySet="cartonPriceEstimator">
+          <ScalarProperty Name="material" ColumnName="material" />
+          <ScalarProperty Name="unitCost" ColumnName="unitCost" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="dimension" ColumnName="dimension" />
+          <ScalarProperty Name="companyName" ColumnName="companyName" />
+          <ScalarProperty Name="trade" ColumnName="trade" />
+          <ScalarProperty Name="carton_id" ColumnName="carton_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="quotations">
+      <EntityTypeMapping TypeName="CESModel.quotation">
+        <MappingFragment StoreEntitySet="quotations">
+          <ScalarProperty Name="seller_name" ColumnName="seller_name" />
+          <ScalarProperty Name="buyer_name" ColumnName="buyer_name" />
+          <ScalarProperty Name="seller_id" ColumnName="seller_id" />
+          <ScalarProperty Name="buyer_id" ColumnName="buyer_id" />
+          <ScalarProperty Name="unit_cost" ColumnName="unit_cost" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="dimension" ColumnName="dimension" />
+          <ScalarProperty Name="material" ColumnName="material" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="trade" ColumnName="trade" />
+          <ScalarProperty Name="quotation_id" ColumnName="quotation_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

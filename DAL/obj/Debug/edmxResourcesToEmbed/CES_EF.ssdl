@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CESModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="buyers">
+    <Key>
+      <PropertyRef Name="buyer_id" />
+    </Key>
+    <Property Name="buyer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="phone" Type="varchar" MaxLength="50" />
+    <Property Name="username" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="cartonPriceEstimator">
+    <Key>
+      <PropertyRef Name="carton_id" />
+    </Key>
+    <Property Name="carton_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="trade" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="companyName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="dimension" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="quantity" Type="int" Nullable="false" />
+    <Property Name="unitCost" Type="float" Nullable="false" />
+    <Property Name="material" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="quotations">
+    <Key>
+      <PropertyRef Name="quotation_id" />
+    </Key>
+    <Property Name="quotation_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="trade" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="company" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="material" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="dimension" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="quantity" Type="int" Nullable="false" />
+    <Property Name="unit_cost" Type="float" Nullable="false" />
+    <Property Name="buyer_id" Type="int" Nullable="false" />
+    <Property Name="seller_id" Type="int" Nullable="false" />
+    <Property Name="buyer_name" Type="varchar" MaxLength="50" />
+    <Property Name="seller_name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sellers">
+    <Key>
+      <PropertyRef Name="seller_id" />
+    </Key>
+    <Property Name="seller_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="phone" Type="varchar" MaxLength="50" />
+    <Property Name="username" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__quotation__buyer__60A75C0F">
+    <End Role="buyers" Type="Self.buyers" Multiplicity="1" />
+    <End Role="quotations" Type="Self.quotations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="buyers">
+        <PropertyRef Name="buyer_id" />
+      </Principal>
+      <Dependent Role="quotations">
+        <PropertyRef Name="buyer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__quotation__selle__619B8048">
+    <End Role="sellers" Type="Self.sellers" Multiplicity="1" />
+    <End Role="quotations" Type="Self.quotations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sellers">
+        <PropertyRef Name="seller_id" />
+      </Principal>
+      <Dependent Role="quotations">
+        <PropertyRef Name="seller_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CESModelStoreContainer">
+    <EntitySet Name="buyers" EntityType="Self.buyers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cartonPriceEstimator" EntityType="Self.cartonPriceEstimator" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="quotations" EntityType="Self.quotations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sellers" EntityType="Self.sellers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__quotation__buyer__60A75C0F" Association="Self.FK__quotation__buyer__60A75C0F">
+      <End Role="buyers" EntitySet="buyers" />
+      <End Role="quotations" EntitySet="quotations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__quotation__selle__619B8048" Association="Self.FK__quotation__selle__619B8048">
+      <End Role="sellers" EntitySet="sellers" />
+      <End Role="quotations" EntitySet="quotations" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

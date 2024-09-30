@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CESModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="buyers">
+          <Key>
+            <PropertyRef Name="buyer_id" />
+          </Key>
+          <Property Name="buyer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="50" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="cartonPriceEstimator">
+          <Key>
+            <PropertyRef Name="carton_id" />
+          </Key>
+          <Property Name="carton_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="trade" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="companyName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dimension" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="unitCost" Type="float" Nullable="false" />
+          <Property Name="material" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="quotations">
+          <Key>
+            <PropertyRef Name="quotation_id" />
+          </Key>
+          <Property Name="quotation_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="trade" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="company" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="material" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dimension" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="unit_cost" Type="float" Nullable="false" />
+          <Property Name="buyer_id" Type="int" Nullable="false" />
+          <Property Name="seller_id" Type="int" Nullable="false" />
+          <Property Name="buyer_name" Type="varchar" MaxLength="50" />
+          <Property Name="seller_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sellers">
+          <Key>
+            <PropertyRef Name="seller_id" />
+          </Key>
+          <Property Name="seller_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="50" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__quotation__buyer__60A75C0F">
+          <End Role="buyers" Type="Self.buyers" Multiplicity="1" />
+          <End Role="quotations" Type="Self.quotations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="buyers">
+              <PropertyRef Name="buyer_id" />
+            </Principal>
+            <Dependent Role="quotations">
+              <PropertyRef Name="buyer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__quotation__selle__619B8048">
+          <End Role="sellers" Type="Self.sellers" Multiplicity="1" />
+          <End Role="quotations" Type="Self.quotations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sellers">
+              <PropertyRef Name="seller_id" />
+            </Principal>
+            <Dependent Role="quotations">
+              <PropertyRef Name="seller_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CESModelStoreContainer">
+          <EntitySet Name="buyers" EntityType="Self.buyers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cartonPriceEstimator" EntityType="Self.cartonPriceEstimator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="quotations" EntityType="Self.quotations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sellers" EntityType="Self.sellers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__quotation__buyer__60A75C0F" Association="Self.FK__quotation__buyer__60A75C0F">
+            <End Role="buyers" EntitySet="buyers" />
+            <End Role="quotations" EntitySet="quotations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__quotation__selle__619B8048" Association="Self.FK__quotation__selle__619B8048">
+            <End Role="sellers" EntitySet="sellers" />
+            <End Role="quotations" EntitySet="quotations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CESModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="buyer">
+          <Key>
+            <PropertyRef Name="buyer_id" />
+          </Key>
+          <Property Name="buyer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="quotations" Relationship="CESModel.FK__quotation__buyer__60A75C0F" FromRole="buyer" ToRole="quotation" />
+        </EntityType>
+        <EntityType Name="seller">
+          <Key>
+            <PropertyRef Name="seller_id" />
+          </Key>
+          <Property Name="seller_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="quotations" Relationship="CESModel.FK__quotation__selle__619B8048" FromRole="seller" ToRole="quotation" />
+        </EntityType>
+        <EntityContainer Name="CES_DbContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="buyers" EntityType="Self.buyer" />
+          <EntitySet Name="sellers" EntityType="Self.seller" />
+          <EntitySet Name="cartonPriceEstimators" EntityType="CESModel.cartonPriceEstimator" />
+          <EntitySet Name="quotations" EntityType="CESModel.quotation" />
+          <AssociationSet Name="FK__quotation__buyer__60A75C0F" Association="CESModel.FK__quotation__buyer__60A75C0F">
+            <End Role="buyer" EntitySet="buyers" />
+            <End Role="quotation" EntitySet="quotations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__quotation__selle__619B8048" Association="CESModel.FK__quotation__selle__619B8048">
+            <End Role="seller" EntitySet="sellers" />
+            <End Role="quotation" EntitySet="quotations" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="cartonPriceEstimator">
+          <Key>
+            <PropertyRef Name="carton_id" />
+          </Key>
+          <Property Name="carton_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="trade" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="companyName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dimension" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="unitCost" Type="Double" Nullable="false" />
+          <Property Name="material" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="quotation">
+          <Key>
+            <PropertyRef Name="quotation_id" />
+          </Key>
+          <Property Name="quotation_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="trade" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="company" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="material" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dimension" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="unit_cost" Type="Double" Nullable="false" />
+          <Property Name="buyer_id" Type="Int32" Nullable="false" />
+          <Property Name="seller_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="buyer" Relationship="CESModel.FK__quotation__buyer__60A75C0F" FromRole="quotation" ToRole="buyer" />
+          <NavigationProperty Name="seller" Relationship="CESModel.FK__quotation__selle__619B8048" FromRole="quotation" ToRole="seller" />
+          <Property Name="buyer_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="seller_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__quotation__buyer__60A75C0F">
+          <End Type="CESModel.buyer" Role="buyer" Multiplicity="1" />
+          <End Type="CESModel.quotation" Role="quotation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="buyer">
+              <PropertyRef Name="buyer_id" />
+            </Principal>
+            <Dependent Role="quotation">
+              <PropertyRef Name="buyer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__quotation__selle__619B8048">
+          <End Type="CESModel.seller" Role="seller" Multiplicity="1" />
+          <End Type="CESModel.quotation" Role="quotation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seller">
+              <PropertyRef Name="seller_id" />
+            </Principal>
+            <Dependent Role="quotation">
+              <PropertyRef Name="seller_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CESModelStoreContainer" CdmEntityContainer="CES_DbContext">
+          <EntitySetMapping Name="buyers">
+            <EntityTypeMapping TypeName="CESModel.buyer">
+              <MappingFragment StoreEntitySet="buyers">
+                <ScalarProperty Name="buyer_id" ColumnName="buyer_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sellers">
+            <EntityTypeMapping TypeName="CESModel.seller">
+              <MappingFragment StoreEntitySet="sellers">
+                <ScalarProperty Name="seller_id" ColumnName="seller_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cartonPriceEstimators">
+            <EntityTypeMapping TypeName="CESModel.cartonPriceEstimator">
+              <MappingFragment StoreEntitySet="cartonPriceEstimator">
+                <ScalarProperty Name="material" ColumnName="material" />
+                <ScalarProperty Name="unitCost" ColumnName="unitCost" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="dimension" ColumnName="dimension" />
+                <ScalarProperty Name="companyName" ColumnName="companyName" />
+                <ScalarProperty Name="trade" ColumnName="trade" />
+                <ScalarProperty Name="carton_id" ColumnName="carton_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="quotations">
+            <EntityTypeMapping TypeName="CESModel.quotation">
+              <MappingFragment StoreEntitySet="quotations">
+                <ScalarProperty Name="seller_name" ColumnName="seller_name" />
+                <ScalarProperty Name="buyer_name" ColumnName="buyer_name" />
+                <ScalarProperty Name="seller_id" ColumnName="seller_id" />
+                <ScalarProperty Name="buyer_id" ColumnName="buyer_id" />
+                <ScalarProperty Name="unit_cost" ColumnName="unit_cost" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="dimension" ColumnName="dimension" />
+                <ScalarProperty Name="material" ColumnName="material" />
+                <ScalarProperty Name="company" ColumnName="company" />
+                <ScalarProperty Name="trade" ColumnName="trade" />
+                <ScalarProperty Name="quotation_id" ColumnName="quotation_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
